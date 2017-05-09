@@ -1,0 +1,39 @@
+body {
+    font-family: sans-serif;
+    background-color: rgb(243, 217, 217);
+}
+
+a {
+    margin: 20px 0;
+}
+
+main {
+    width: 370px;
+    height: 500px;
+    border: 2px solid black;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    background-color: white;
+}
+
+h1 {
+    margin: 0;
+}
+
+ul, li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    width: 1480px;
+}
+
+li {
+    width: 370px;
+    height: 500px;
+    float: left;
+    padding: 20px;
+    box-sizing: border-box;
+}

@@ -1,0 +1,18 @@
+body {
+    font-family: sans-serif;
+    background-color: rgb(169, 209, 232);
+}
+
+a {
+    display: block;
+    margin: 20px 0;
+}
+
+[href="#top"] {
+    position: fixed;
+    left: 10px;
+    bottom: 10px;
+    background-color: gray;
+    padding: 20px;
+    margin: 0;
+}

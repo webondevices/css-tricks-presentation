@@ -1,0 +1,26 @@
+body {
+    font-family: sans-serif;
+    background-color: rgb(223, 230, 201);
+}
+
+a {
+    display: block;
+    margin: 20px 0;
+}
+
+[href="#top"] {
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    background-color: gray;
+    padding: 20px;
+}
+
+h1 {
+    transition: background-color 1s, transform 1s;
+}
+
+h1:target {
+    transform: translateX(50px);
+    background-color: white;
+}

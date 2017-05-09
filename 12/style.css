@@ -1,0 +1,174 @@
+body {
+    background-color: #2d3f58;
+    font-family: Arial;
+    color: white;
+    font-size: 12px;
+}
+
+progress {
+    -webkit-appearance: none;
+    appearance: none;
+    position: relative;
+    width: 300px;
+    height: 300px;
+}
+progress::-webkit-progress-bar {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background-color: #495b76;
+    overflow: hidden;
+}
+progress::-webkit-progress-value {
+    width: 5px !important;
+    height: 150px;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform-origin: bottom center;
+    transition: background-color 1s, transform 1s;
+}
+progress[value="1"]::-webkit-progress-value {
+    transform: rotate(10deg);
+    background-color: #ff2b00;
+}
+progress[value="2"]::-webkit-progress-value {
+    transform: rotate(20deg);
+    background-color: #ff5500;
+}
+progress[value="3"]::-webkit-progress-value {
+    transform: rotate(30deg);
+    background-color: #ff8000;
+}
+progress[value="4"]::-webkit-progress-value {
+    transform: rotate(40deg);
+    background-color: #ffaa00;
+}
+progress[value="5"]::-webkit-progress-value {
+    transform: rotate(50deg);
+    background-color: #ffd500;
+}
+progress[value="6"]::-webkit-progress-value {
+    transform: rotate(60deg);
+    background-color: yellow;
+}
+progress[value="7"]::-webkit-progress-value {
+    transform: rotate(70deg);
+    background-color: #d5ff00;
+}
+progress[value="8"]::-webkit-progress-value {
+    transform: rotate(80deg);
+    background-color: #aaff00;
+}
+progress[value="9"]::-webkit-progress-value {
+    transform: rotate(90deg);
+    background-color: #80ff00;
+}
+progress[value="10"]::-webkit-progress-value {
+    transform: rotate(100deg);
+    background-color: #55ff00;
+}
+progress[value="11"]::-webkit-progress-value {
+    transform: rotate(110deg);
+    background-color: #2bff00;
+}
+progress[value="12"]::-webkit-progress-value {
+    transform: rotate(120deg);
+    background-color: lime;
+}
+progress[value="13"]::-webkit-progress-value {
+    transform: rotate(130deg);
+    background-color: #00ff2b;
+}
+progress[value="14"]::-webkit-progress-value {
+    transform: rotate(140deg);
+    background-color: #00ff55;
+}
+progress[value="15"]::-webkit-progress-value {
+    transform: rotate(150deg);
+    background-color: #00ff80;
+}
+progress[value="16"]::-webkit-progress-value {
+    transform: rotate(160deg);
+    background-color: #00ffaa;
+}
+progress[value="17"]::-webkit-progress-value {
+    transform: rotate(170deg);
+    background-color: #00ffd5;
+}
+progress[value="18"]::-webkit-progress-value {
+    transform: rotate(180deg);
+    background-color: cyan;
+}
+progress[value="19"]::-webkit-progress-value {
+    transform: rotate(190deg);
+    background-color: #00d5ff;
+}
+progress[value="20"]::-webkit-progress-value {
+    transform: rotate(200deg);
+    background-color: #00aaff;
+}
+progress[value="21"]::-webkit-progress-value {
+    transform: rotate(210deg);
+    background-color: #0080ff;
+}
+progress[value="22"]::-webkit-progress-value {
+    transform: rotate(220deg);
+    background-color: #0055ff;
+}
+progress[value="23"]::-webkit-progress-value {
+    transform: rotate(230deg);
+    background-color: #002bff;
+}
+progress[value="24"]::-webkit-progress-value {
+    transform: rotate(240deg);
+    background-color: blue;
+}
+progress[value="25"]::-webkit-progress-value {
+    transform: rotate(250deg);
+    background-color: #2b00ff;
+}
+progress[value="26"]::-webkit-progress-value {
+    transform: rotate(260deg);
+    background-color: #5500ff;
+}
+progress[value="27"]::-webkit-progress-value {
+    transform: rotate(270deg);
+    background-color: #8000ff;
+}
+progress[value="28"]::-webkit-progress-value {
+    transform: rotate(280deg);
+    background-color: #aa00ff;
+}
+progress[value="29"]::-webkit-progress-value {
+    transform: rotate(290deg);
+    background-color: #d500ff;
+}
+progress[value="30"]::-webkit-progress-value {
+    transform: rotate(300deg);
+    background-color: magenta;
+}
+progress[value="31"]::-webkit-progress-value {
+    transform: rotate(310deg);
+    background-color: #ff00d5;
+}
+progress[value="32"]::-webkit-progress-value {
+    transform: rotate(320deg);
+    background-color: #ff00aa;
+}
+progress[value="33"]::-webkit-progress-value {
+    transform: rotate(330deg);
+    background-color: #ff0080;
+}
+progress[value="34"]::-webkit-progress-value {
+    transform: rotate(340deg);
+    background-color: #ff0055;
+}
+progress[value="35"]::-webkit-progress-value {
+    transform: rotate(350deg);
+    background-color: #ff002b;
+}
+progress[value="36"]::-webkit-progress-value {
+    transform: rotate(360deg);
+    background-color: red;
+}

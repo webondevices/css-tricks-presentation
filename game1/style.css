@@ -1,0 +1,128 @@
+body {
+  font-family: arial;
+  counter-reset: found total;
+}
+
+.image-container,
+.image-container > img,
+.success,
+.timeout {
+  width: 700px;
+  height: 386px;
+}
+
+.image-container {
+  position: relative;
+}
+
+input {
+  display: none;
+}
+
+input + label {
+  width: 40px;
+  height: 40px;
+  border: 4px solid blue;
+  border-radius: 50%;
+  position: absolute;
+  opacity: 0;
+  counter-increment: total;
+}
+
+#spot1  + label {left: 90px; top: 10px;}
+#spot2  + label {left: 55px; top: 85px;}
+#spot3  + label {left: 200px; top: 120px;}
+#spot4  + label {left: 285px; top: 125px;}
+#spot5  + label {left: 310px; top: 175px;}
+#spot6  + label {left: 70px; top: 190px;}
+#spot7  + label {left: 295px; top: 60px;}
+#spot8  + label {left: 210px; top: 230px;}
+#spot9  + label {left: 250px; top: 215px;}
+#spot10 + label {left: 60px; top: 330px;}
+#spot11 + label {left: 255px; top: 340px;}
+#spot12 + label {left: 305px; top: 290px;}
+
+input:checked + label {
+  opacity: 1;
+  touch-events: none;
+  counter-increment: found;
+}
+
+.image-container::after {
+  content: 'You found ' counter(found) ' differences. There are ' counter(total) ' more to find.';
+  font-size: 24px;
+  top: 10px;
+  position: relative;
+}
+
+.success,
+.timeout {
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: 50px;
+  box-sizing: border-box;
+  opacity: 0;
+  transform: scale(0);
+  padding: 50px;
+  box-sizing: border-box;
+  transition: opacity 300ms, transform 300ms;
+}
+
+.success {
+  background-color: rgb(150,220,150);
+  z-index: 2;
+}
+
+.timeout {
+  background-color: rgb(220,150,150);
+  animation: game-over 300ms 20s linear both;
+  z-index: 1;
+}
+
+#spot1:checked ~ #spot2:checked ~ #spot3:checked ~ #spot4:checked ~ #spot5:checked ~ #spot6:checked ~ #spot7:checked ~ #spot8:checked ~ #spot9:checked ~ #spot10:checked ~ #spot11:checked ~ #spot12:checked ~ .success {
+  opacity: 1;
+  transform: scale(1);
+}
+
+#spot1:checked ~ #spot2:checked ~ #spot3:checked ~ #spot4:checked ~ #spot5:checked ~ #spot6:checked ~ #spot7:checked ~ #spot8:checked ~ #spot9:checked ~ #spot10:checked ~ #spot11:checked ~ #spot12:checked ~ .timeleft,
+#spot1:checked ~ #spot2:checked ~ #spot3:checked ~ #spot4:checked ~ #spot5:checked ~ #spot6:checked ~ #spot7:checked ~ #spot8:checked ~ #spot9:checked ~ #spot10:checked ~ #spot11:checked ~ #spot12:checked ~ .timeout {
+  animation-play-state: paused;
+}
+
+.timeleft {
+  width: 700px;
+  height: 30px;
+  background-color: green;
+  margin-top: 10px;
+
+  animation: count-down 20s linear both;
+}
+
+@keyframes count-down {
+  0% {
+    width: 700px;
+    background-color: green;
+  }
+
+  50% {
+    background-color: orange;
+  }
+
+  100% {
+    width: 0;
+    background-color: red;
+  }
+}
+
+@keyframes game-over {
+  from {
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

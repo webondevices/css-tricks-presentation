@@ -1,0 +1,55 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    overflow: hidden;
+}
+
+footer {
+    text-align: center;
+}
+
+a {
+    padding: 20px;
+}
+
+ul {
+    margin: 50px 0;
+    padding: 0;
+    height: 300px;
+    transform-style: preserve-3d;
+    perspective: 800px;
+}
+
+ul li {
+    width: 500px;
+    height: 300px;
+    background-color: gray;
+    list-style: none;
+    opacity: 0;
+    transition: opacity 1s, transform 1s;
+    position: absolute;
+    left: 50%;
+    transform: translateX(calc(-50% - 500px)) translateZ(-150px) rotateY(-40deg);
+}
+
+ul li:target {
+    opacity: 1;
+    transform: translateX(-50%) translateZ(0px);
+}
+
+ul li:target ~ li {
+    opacity: 0;
+    transform: translateX(calc(-50% + 500px)) translateZ(-150px) rotateY(40deg);
+}
+
+li {
+    box-sizing: border-box;
+    padding: 20px;
+    background-size: cover;
+}
+
+#slide1 { background-image: url(car1.jpg) }
+#slide2 { background-image: url(car2.jpg) }
+#slide3 { background-image: url(car3.jpg) }
+#slide4 { background-image: url(car4.jpg) }
+#slide5 { background-image: url(car5.jpg) }

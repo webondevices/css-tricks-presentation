@@ -1,0 +1,15 @@
+body {
+    font-family: sans-serif;
+    counter-reset: fruit-list;
+    background-color: rgb(199, 198, 236);
+}
+
+ul li {
+    counter-increment: fruit-list;
+}
+
+ul li:before {
+    content: counter(fruit-list) ". fruit: ";
+    color: blue;
+    font-weight: bold;
+}

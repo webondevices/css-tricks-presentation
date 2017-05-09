@@ -1,0 +1,77 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    counter-reset: total;
+}
+
+body {
+  font-family: arial;
+}
+
+div {
+  box-sizing: border-box;
+  width: 150px;
+  height: 0;
+  padding: 0;
+  margin-bottom: 0;
+  background-color: rgb(230,230,230);
+  overflow: hidden;
+  transition: all 300ms;
+}
+
+.filters {
+  margin-left: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.dairy {
+  border-left: 5px solid blue;
+}
+
+.meat {
+  border-left: 5px solid brown;
+}
+
+.fruit {
+  border-left: 5px solid red;
+}
+
+.nuts {
+  border-left: 5px solid orange;
+}
+
+.vegetables {
+  border-left: 5px solid green;
+}
+
+#dairy:checked ~ .dairy,
+#meat:checked ~ .meat,
+#fruit:checked ~ .fruit,
+#nuts:checked ~ .nuts,
+#vegetables:checked ~ .vegetables {
+  height: 40px;
+  padding: 11px;
+  margin-bottom: 10px;
+  counter-increment: total;
+}
+
+#vegan:checked ~ .non-vegan,
+#vegetarian:checked ~ .non-vegetarian {
+  height: 0;
+  padding: 0;
+  margin-bottom: 0;
+  counter-increment: total;
+}
+
+.result {
+    position: absolute;
+    left: 250px;
+    top: 40px;
+    font-size: 24px;
+}
+
+.result::after {
+    content: counter(total);
+    font-weight: bold;
+}

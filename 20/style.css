@@ -1,0 +1,64 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    overflow: hidden
+}
+
+ul, li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+input {
+    display: none;
+}
+
+label {
+    font-size: 80px;
+    line-height: 0.45;
+    width: 60px;
+    height: 50px;
+    transition: background-color 300ms;
+    background-color: rgb(144, 223, 241);
+    display: block;
+    text-align: center;
+    position: absolute;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+}
+
+input:checked ~ label {
+    background-color: white;
+}
+
+input:checked ~ .navigation {
+    transform: translateX(0);
+}
+
+.navigation {
+    width: 200px;
+    position: absolute;
+    right: 0;
+    top: 50px;
+    background-color: white;
+    transform: translateX(100%);
+    transition: transform 300ms;
+}
+
+li {
+    height: 50px;
+    padding: 18px;
+    margin: 10px;
+    background-color: rgb(144, 223, 241);
+    box-sizing: border-box;
+    transition: all 300ms;
+    transform: translateX(35%);
+}
+
+li:hover {
+    transform: translateX(0);
+    background-color: rgb(51, 85, 93);
+    color: white;
+}

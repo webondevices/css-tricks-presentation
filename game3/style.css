@@ -1,0 +1,180 @@
+body {
+  font-family: arial;
+}
+
+.scene {
+  display: flex;
+  flex-wrap: wrap;
+  width: 540px;
+  position: relative;
+}
+
+input {
+  display: none;
+}
+
+label {
+  width: 100px;
+  height: 91px;
+  display: block;
+  position: relative;
+  margin: 60px 40px 40px;
+  cursor: pointer;
+}
+
+.bush {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 300px;
+  height: 166.5px;
+  z-index: 2;
+}
+
+.bush > img {
+  width: 100%;
+}
+
+.b1 {top: 50px; left: -45px; z-index: 2;}
+.b2 {top: 55px; left: 140px; z-index: 2;}
+.b3 {top: 47px; left: 320px; z-index: 2;}
+.b4 {top: 240px; left: -53px; z-index: 4;}
+.b5 {top: 240px; left: 154px; z-index: 4;}
+.b6 {top: 240px; left: 312px; z-index: 4;}
+.b7 {top: 427px; left: -47px; z-index: 6;}
+.b8 {top: 420px; left: 135px; z-index: 6;}
+.b9 {top: 425px; left: 315px; z-index: 6;}
+
+[for="t1"], [for="t2"], [for="t3"] {
+  z-index: 1;
+}
+[for="t4"], [for="t5"], [for="t6"] {
+  z-index: 3;
+}
+[for="t7"], [for="t8"], [for="t9"] {
+  z-index: 5;
+}
+
+label > img {
+  width: 100px;
+  height: 91px;
+  z-index: 1;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+.success,
+.fail {
+  position: absolute;
+  left: 50%;
+  top: 200px;
+  padding: 50px;
+  box-sizing: border-box;
+  opacity: 0;
+  transform: scale(0) translateX(-50%);
+  padding: 50px;
+  box-sizing: border-box;
+  transition: opacity 300ms, transform 300ms;
+  width: 270px;
+  height: 200px;
+  z-index: 7;
+  box-shadow: 0 0 30px black;
+  transform-origin: left;
+}
+
+.success {
+  background-color: rgb(150,220,150);
+}
+
+.fail {
+  background-color: rgb(220,150,150);
+}
+
+#t1:checked ~ #t2:checked ~ #t3:checked ~ #t4:checked ~ #t5:checked ~ #t6:checked ~ #t7:checked ~ #t8:checked ~ #t9:checked ~ .success {
+  opacity: 1;
+  transform: scale(1) translateX(-50%);
+}
+
+#t1:checked ~ #t2:checked ~ #t3:checked ~ #t4:checked ~ #t5:checked ~ #t6:checked ~ #t7:checked ~ #t8:checked ~ #t9:checked ~ .fail,
+#t1:checked ~ #t2:checked ~ #t3:checked ~ #t4:checked ~ #t5:checked ~ #t6:checked ~ #t7:checked ~ #t8:checked ~ #t9:checked ~ .timeleft {
+  animation-play-state: paused;
+}
+
+.fail {
+  animation: game-over 300ms 15s linear both;
+}
+
+input:checked + label {
+  animation: none;
+  transform: translateY(-100%);
+  filter: grayscale(1);
+}
+
+@keyframes game-over {
+  from {
+    opacity: 0;
+    transform: scale(0) translateX(-50%);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1) translateX(-50%);
+  }
+}
+
+.timeleft {
+  width: 540px;
+  height: 30px;
+  background-color: green;
+  margin-top: 10px;
+
+  animation: count-down 15s linear both;
+}
+
+@keyframes count-down {
+  0% {
+    width: 540px;
+    background-color: green;
+  }
+
+  50% {
+    background-color: orange;
+  }
+
+  100% {
+    width: 0;
+    background-color: red;
+  }
+}
+
+[for="t1"] { animation: quick-show 8s 1s infinite; }
+[for="t2"] { animation: quick-show 13s 2s infinite; }
+[for="t3"] { animation: quick-show 7s 0s infinite; }
+[for="t4"] { animation: quick-show 9s 3s infinite; }
+[for="t5"] { animation: quick-show 12s 0s infinite; }
+[for="t6"] { animation: quick-show 8s 2s infinite; }
+[for="t7"] { animation: quick-show 9s 1s infinite; }
+[for="t8"] { animation: quick-show 11s 0s infinite; }
+[for="t9"] { animation: quick-show 10s 1s infinite; }
+
+@keyframes quick-show {
+  0% {
+    transform: translateY(0%);
+  }
+  20% {
+    transform: translateY(-80%);
+  }
+  40% {
+    transform: translateY(0%);
+  }
+  60% {
+    transform: translateY(0%);
+  }
+  80% {
+    transform: translateY(-80%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}

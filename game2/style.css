@@ -1,0 +1,155 @@
+body {
+  font-family: arial;
+  counter-reset: correct wrong;
+}
+
+p {
+  font-size: 20px;
+}
+
+input {
+  visibility: hidden;
+  width: 0;
+  height: 0;
+  display: block;
+  margin: 0;
+}
+
+.success,
+.fail {
+  display: none;
+  width: 400px;
+  height: 300px;
+  box-sizing: border-box;
+  padding: 30px;
+}
+
+.success > p,
+.fail > p {
+  font-size: 18px;
+}
+
+.success {
+  background-color: rgb(150,220,150);
+}
+
+.fail {
+  background-color: rgb(220,150,150);
+}
+
+.question1,
+.question2,
+.question3,
+.question4,
+.question5,
+[for="start"] ~ label,
+#start:checked ~ [for="start"] {
+  display: none;
+}
+
+#start:checked ~ .question1,
+[id^="q1"]:checked ~ .question2,
+[id^="q2"]:checked ~ .question3,
+[id^="q3"]:checked ~ .question4,
+[id^="q4"]:checked ~ .question5 {
+  display: block;
+  animation: fade-in 1s both;
+}
+
+[id^="q1"]:checked ~ .question1,
+[id^="q2"]:checked ~ .question1, [id^="q2"]:checked ~ .question2,
+[id^="q3"]:checked ~ .question1, [id^="q3"]:checked ~ .question2, [id^="q3"]:checked ~ .question3,
+[id^="q4"]:checked ~ .question1, [id^="q4"]:checked ~ .question2, [id^="q4"]:checked ~ .question3, [id^="q4"]:checked ~ .question4,
+[id^="q5"]:checked ~ .question1, [id^="q5"]:checked ~ .question2, [id^="q5"]:checked ~ .question3, [id^="q5"]:checked ~ .question4, [id^="q5"]:checked ~ .question5 {
+  display: none !important;
+}
+
+.correct:checked {
+  counter-increment: correct;
+}
+
+.wrong:checked {
+  counter-increment: wrong;
+}
+
+.correct:checked ~ .correct:checked ~ .correct:checked ~ .correct:checked ~ .correct:checked ~ .success {
+  display: block;
+  animation: game-over 1s both;
+}
+
+.fail > p::after {
+  content: ' got ' counter(correct) ' questions right and ' counter(wrong) ' wrong.';
+}
+
+.wrong:checked ~ [id^="q"]:checked ~ [id^="q"]:checked ~ [id^="q"]:checked ~ [id^="q"]:checked ~ .fail,
+[id^="q"]:checked ~ .wrong:checked ~ [id^="q"]:checked ~ [id^="q"]:checked ~ [id^="q"]:checked ~ .fail,
+[id^="q"]:checked ~ [id^="q"]:checked ~ .wrong:checked ~ [id^="q"]:checked ~ [id^="q"]:checked ~ .fail,
+[id^="q"]:checked ~ [id^="q"]:checked ~ [id^="q"]:checked ~ .wrong:checked ~ [id^="q"]:checked ~ .fail,
+[id^="q"]:checked ~ [id^="q"]:checked ~ [id^="q"]:checked ~ [id^="q"]:checked ~ .wrong:checked ~ .fail {
+  display: block;
+  animation: game-over 1s both;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+[for="start"] {
+  display: block;
+  width: 200px;
+  height: 50px;
+  background-color: rgb(220, 220, 220);
+  text-align: center;
+  padding-top: 15px;
+  box-sizing: border-box;
+  font-size: 18px;
+  margin: 20px 60px;
+  cursor: pointer;
+}
+
+[for="start"]:hover {
+  background-color: rgb(100, 220, 100);
+}
+
+.question1,
+.question2,
+.question3,
+.question4,
+.question5 {
+  margin: 20px;
+}
+
+[for^="q"] {
+  display: block;
+  width: 200px;
+  height: 50px;
+  background-color: rgb(220,220,220);
+  margin: 20px 60px;
+  text-align: center;
+  box-sizing: border-box;
+  padding-top: 16px;
+  transition: box-shadow 300ms, transform 300ms;
+}
+
+[for^="q"]:hover {
+  box-shadow: 0 0 15px rgba(0,0,0,0.5);
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+@keyframes game-over {
+  from {
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

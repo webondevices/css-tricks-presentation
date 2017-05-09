@@ -1,0 +1,42 @@
+body {
+    font-family: sans-serif;
+    background-color: #2d3f58;
+    color: white;
+    font-size: 12px;
+}
+
+progress {
+    -webkit-appearance: none;
+    appearance: none;
+    position: relative;
+    width: 250px;
+    height: 15px;
+
+    &::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 10px;
+        top: 30px;
+        opacity: 0.4;
+    }
+
+    &::after {
+        content: attr(value) "0%";
+        position: absolute;
+        right: 0;
+        top: 30px;
+    }
+
+    &::-webkit-progress-bar {
+        transition: background-color 300ms, width 300ms;
+        background-color: #495b76;
+        border-radius: 10px;
+        overflow:hidden;
+    }
+
+    @for $i from 1 through 10 {
+        &[value="#{$i}"]::-webkit-progress-value {
+            background-color: adjust-hue(red, (10deg*$i));
+        }
+    }
+}

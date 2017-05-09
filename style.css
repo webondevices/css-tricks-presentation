@@ -1,0 +1,139 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    display: flex;
+}
+
+section {
+    width: 50%;
+    height: 100%;
+}
+
+code {
+    padding-bottom: 30px !important;
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+}
+
+.notes {
+    background-color: rgb(220,220,220);
+    overflow-y: scroll;
+    position: relative;
+}
+
+.slide {
+    width: 100%;
+    min-height: 100%;
+    box-sizing: border-box;
+    padding: 20px 20px 60px;
+    position: relative;
+}
+
+.slide > img {
+    width: 100%;
+}
+
+h1 {
+    font-size: 2.5vw;
+    margin: 0;
+}
+
+p {
+    font-size: 2vw;
+    margin: 25px;
+    line-height: 1.5;
+}
+
+code {
+    font-size: 1.5vw;
+}
+
+.demo > a {
+    color: green;
+    font-style: italic;
+    font-family: serif;
+}
+
+#fullscreen {
+    display: none;
+}
+
+#fullscreen + label {
+    display: block;
+    background-color:rgb(220,220,220);
+    position: absolute;
+    padding: 10px;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+}
+
+#fullscreen:checked + label {
+    background-color: green;
+    color: white;
+}
+
+#fullscreen:checked ~ iframe {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.next {
+    display: block;
+    background-color:rgb(184,184,184);
+    position: absolute;
+    padding: 20px;
+    left: 0;
+    bottom: 0;
+}
+
+.progress {
+    width: 0;
+    background-color: gray;
+    transition: all 300ms;
+    height: 10px;
+    position: fixed;
+    left: 0;
+    top: 0;
+}
+
+[id="s1"]:target ~ .progress { width: 3.3%; background-color: hsl(0,75%,50%) }
+[id="s2"]:target ~ .progress { width: 6.6%; background-color: hsl(4,75%,50%) }
+[id="s3"]:target ~ .progress { width: 10%; background-color: hsl(8,75%,50%) }
+[id="s4"]:target ~ .progress { width: 13.3%; background-color: hsl(12,75%,50%) }
+[id="s5"]:target ~ .progress { width: 16.6%; background-color: hsl(16,75%,50%) }
+[id="s6"]:target ~ .progress { width: 20%; background-color: hsl(20,75%,50%) }
+[id="s7"]:target ~ .progress { width: 23.3%; background-color: hsl(24,75%,50%) }
+[id="s8"]:target ~ .progress { width: 26.6%; background-color: hsl(28,75%,50%) }
+[id="s9"]:target ~ .progress { width: 30%; background-color: hsl(32,75%,50%) }
+[id="s10"]:target ~ .progress { width: 33.3%; background-color: hsl(36,75%,50%) }
+[id="s11"]:target ~ .progress { width: 36.6%; background-color: hsl(40,75%,50%) }
+[id="s12"]:target ~ .progress { width: 40%; background-color: hsl(44,75%,50%) }
+[id="s13"]:target ~ .progress { width: 43.3%; background-color: hsl(48,75%,50%) }
+[id="s14"]:target ~ .progress { width: 46.6%; background-color: hsl(52,75%,50%) }
+[id="s15"]:target ~ .progress { width: 50%; background-color: hsl(56,75%,50%) }
+[id="s16"]:target ~ .progress { width: 53.3%; background-color: hsl(60,75%,50%) }
+[id="s17"]:target ~ .progress { width: 56.6%; background-color: hsl(64,75%,50%) }
+[id="s18"]:target ~ .progress { width: 60%; background-color: hsl(68,75%,50%) }
+[id="s19"]:target ~ .progress { width: 63.3%; background-color: hsl(72,75%,50%) }
+[id="s20"]:target ~ .progress { width: 66.6%; background-color: hsl(76,75%,50%) }
+[id="s21"]:target ~ .progress { width: 70%; background-color: hsl(80,75%,50%) }
+[id="s22"]:target ~ .progress { width: 73.3%; background-color: hsl(84,75%,50%) }
+[id="s23"]:target ~ .progress { width: 76.6%; background-color: hsl(88,75%,50%) }
+[id="s24"]:target ~ .progress { width: 80%; background-color: hsl(92,75%,50%) }
+[id="s25"]:target ~ .progress { width: 83.3%; background-color: hsl(96,75%,50%) }
+[id="s26"]:target ~ .progress { width: 86.6%; background-color: hsl(100,75%,50%) }
+[id="s27"]:target ~ .progress { width: 90%; background-color: hsl(104,75%,50%) }
+[id="s28"]:target ~ .progress { width: 93.3%; background-color: hsl(108,75%,50%) }
+[id="s29"]:target ~ .progress { width: 96.6%; background-color: hsl(112,75%,50%) }
+[id="s30"]:target ~ .progress { width: 100%; background-color: hsl(116,75%,50%) }

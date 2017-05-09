@@ -1,0 +1,23 @@
+body {
+    font-family: sans-serif;
+}
+
+hr {
+    border: none;
+    height: 1px;
+    background-color: #C6C8CA;
+    font-family: sans-serif;
+    margin: 32px 16px;
+}
+
+hr:after {
+    content: attr(class);
+    width: 48px;
+    position: relative;
+    top: -8px;
+    text-transform: capitalize;
+    text-align: center;
+    display: block;
+    background-color: white;
+    margin: 8px auto;
+}

@@ -1,0 +1,40 @@
+body {
+    font-family: sans-serif;
+    margin: 50px 200px;
+    perspective: 800px;
+    background-image: url(table.jpg);
+    background-size: cover;
+}
+
+.card {
+    margin-bottom: 50px; 
+    width: 400px;
+    height: 240px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 1s;
+    box-shadow: 0 0 30px black;
+}
+
+.card > div {
+    position: absolute;
+    left: 0;
+    top: 0;
+    backface-visibility: hidden;
+}
+
+.card > div > img {
+    width: 100%;
+}
+
+.back {
+    transform: rotateY(180deg);
+}
+
+.card:nth-child(1):hover {
+    transform: rotateY(180deg);
+}
+
+.card:nth-child(2):active {
+    transform: rotateY(180deg);
+}

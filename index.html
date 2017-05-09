@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <section class="notes">
+
+        <div class="slide">
+            <img src="main.png">
+            <p>Pushing the limits of HTML and CSS</p>
+            <p>Mate Marschalko, 9 May 2017</p>
+
+            <a class="next" href="#s1">Next</a>
+        </div>
+
+        <div class="slide" id="s1">
+            <h1>Why push HTML and CSS solutions?</h1>
+            <p> - <strong><a href="https://www.w3.org/2001/tag/doc/leastPower.html" target="demo">Rule of least power</a></strong>: Use the least powerful language suitable for expressing information on the WWW</p>
+            <p> - For <strong>information reuse</strong> to succeed we can't obscure content, style and functionality with javascript</p>
+            <p> - HTML and CSS are not powerful languages but the benefits come from this simplicity</p>
+            <p> - <strong>Simplicity = productivity</strong></p>
+            <p> - In aiming for simplicity, one must of course go far enough but not too far</p>
+
+            <a class="next" href="#s2">Next</a>
+        </div>
+
+        <div class="slide" id="s2">
+            <h1>What we focus on?</h1>
+            <p> - Functional features</p>
+            <p> - CSS styling features get more attention</p>
+            <p> - <a href="http://www.caniuse.com/#feat=css-counters" target="demo">Can I use</a href="www.caniuse.com" target="demo"> to find new features</p>
+
+            <a class="next" href="#s3">Next</a>
+        </div>
+
+        <div class="slide" id="s3">
+            <h1>Anchors</h1>
+            <pre><code class="html">&lt;a href="#heading"&gt;Link&lt;/a&gt;
+
+&lt;h1 id="heading"&gt;Title&lt;/h1&gt;</code></pre>
+            <p class="demo">1. <a href="1/index.html" target="demo">Scroll to heading</a></p>
+            <p class="demo">2. <a href="2/index.html" target="demo">Scroll to content in scrollable element</a></p>
+
+            <a class="next" href="#s4">Next</a>
+        </div>
+
+        <div class="slide" id="s4">
+            <h1>Anchors</h1>
+            <pre><code class="css">h1:target {
+    transform: translateX(50px);
+    background-color: white;
+}</code></pre>
+            <p class="demo">3. <a href="3/index.html" target="demo">Highlight anchored heading</a></p>
+
+            <a class="next" href="#s5">Next</a>
+        </div>
+
+        <div class="slide" id="s5">
+            <h1>Anchors</h1>
+            <pre><code class="html">&lt;a href="#slide1"&gt;slide 1&lt;/a&gt;
+
+&lt;li id="slide1"&gt;&lt;img src="car1.jpg"&gt;&lt;/li&gt;</code></pre>
+            <pre><code class="css">li {
+    opacity: 0;
+    transition: opacity .5s;
+}
+
+li:first-child {
+    opacity: 1;
+}
+
+li:target {
+    opacity: 1;
+}</code></pre>
+            <p class="demo">4. <a href="4/index.html" target="demo">Animated carousel</a></p>
+
+            <a class="next" href="#s6">Next</a>
+        </div>
+
+        <div class="slide" id="s6">
+            <h1>Anchors</h1>
+            <pre><code class="css">li {
+    opacity: 0;
+    transition: opacity 1s, transform 1s;
+    transform: translateX(-500px) translateZ(-150px) rotateY(-40deg);
+}
+
+li:target {
+    opacity: 1;
+    transform: translateX(0) translateZ(0) rotateY(0);
+}
+
+li:target ~ li {
+    opacity: 0;
+    transform: translateX(500px) translateZ(-150px) rotateY(40deg);
+}</code></pre>
+            <p class="demo">5. <a href="5/index.html" target="demo">3D carousel</a></p>
+
+            <a class="next" href="#s7">Next</a>
+        </div>
+
+        <div class="slide" id="s7">
+            <h1>Image maps</h1>
+            <pre><code class="html">&lt;img src="map.gif" alt="" usemap="#map"&gt;
+
+&lt;map name="map"&gt;
+    &lt;area href="#america" shape="poly" coords="1,2,3,4"&gt;
+&lt;/map&gt;</code></pre>
+            <pre><code class="css">section {
+    opacity: 0;
+    transform: scale(0);
+    transition: transform 300ms, opacity 300ms;
+}
+section:target {
+    opacity: 1;
+    transform: scale(1);
+}</code></pre>
+
+            <p class="demo">6. <a href="6/index.html" target="demo">Image pop-ups</a></p>
+
+            <a class="next" href="#s8">Next</a>
+        </div>
+
+        <div class="slide" id="s8">
+            <h1>Pseudo classes</h1>
+            <pre><code class="css">button:hover {
+    background-color: pink;
+    transform: scale(1.1);
+}
+
+button:active {
+    background-color: red;
+    transform: scale(1);
+}</code></pre>
+            <p class="demo">7. <a href="7/index.html" target="demo">Hover and click element</a></p>
+
+            <a class="next" href="#s9">Next</a>
+        </div>
+
+        <div class="slide" id="s9">
+            <h1>Pseudo classes</h1>
+            <pre><code class="css">.card:nth-child(1):hover {
+    transform: rotateY(180deg);
+}
+
+.card:nth-child(2):active {
+    transform: rotateY(180deg);
+}</code></pre>
+            <p class="demo">8. <a href="8/index.html" target="demo">Flip card</a></p>
+
+            <a class="next" href="#s10">Next</a>
+        </div>
+
+        <div class="slide" id="s10">
+            <h1>Pseudo element content</h1>
+            <p> - Used to add content through CSS</p>
+            <p> - We can add text, image, attribute value or counter</p>
+
+            <pre><code class="css">.element::after {
+    content: "text";
+    content: url(image.jpg);
+    content: attr(class);
+    content: counter(items);
+}</code></pre>
+
+            <a class="next" href="#s11">Next</a>
+        </div>
+
+        <div class="slide" id="s11">
+            <h1>Pseudo element content</h1>
+            <pre><code class="html">&lt;hr class="or"&gt;</code></pre>
+            <pre><code class="css">hr::after {
+    content: attr(class);
+    text-transform: capitalize;
+}</code></pre>
+            <p class="demo">9. <a href="9/index.html" target="demo">Semantically correct HR</a></p>
+
+            <a class="next" href="#s12">Next</a>
+        </div>
+
+        <div class="slide" id="s12">
+            <h1>Pseudo element content</h1>
+            <pre><code class="html">&lt;span data-tooltip="For example ::before and ::after"&gt;pseudo element&lt;/span&gt;</code></pre>
+            <pre><code class="css">[data-tooltip]::before {
+    content: attr(data-tooltip);
+}</code></pre>
+            <p class="demo">10. <a href="10/index.html" target="demo">Semantically correct tooltip</a></p>
+
+            <a class="next" href="#s13">Next</a>
+        </div>
+
+        <div class="slide" id="s13">
+            
+            <h1>Pseudo element content</h1>
+            <pre><code class="html">&lt;progress data-label="Loading..." min="0" max="10" value="8"&gt;</code></pre>
+            <pre><code class="css">progress::before {
+    content: attr(data-label);
+}
+
+progress::after {
+    content: attr(value) "0%";
+}</code></pre>
+            <p class="demo">11. <a href="11/index.html" target="demo">Progress element</a></p>
+
+            <a class="next" href="#s14">Next</a>
+        </div>
+
+        <div class="slide" id="s14">
+            <h1>CSS counters</h1>
+            <pre><code class="html">&lt;ul&gt;
+  &lt;li&gt;Apple&lt;/li&gt;
+  &lt;li&gt;Pear&lt;/li&gt;
+  &lt;li&gt;Kiwi&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+            <pre><code class="css">body {
+    counter-reset: fruit-list;
+}
+
+li {
+    counter-increment: fruit-list;
+}
+
+li::before {
+    content: counter(fruit-list) ". fruit: ";
+}</code></pre>
+            <p class="demo">12. <a href="13/index.html" target="demo">Basic counter</a></p>
+
+            <a class="next" href="#s15">Next</a>
+        </div>
+
+        <div class="slide" id="s15">
+            <h1>CSS counters</h1>
+            <pre><code class="html">&lt;li data-delivery-size="up-to-30kg">&lt;p&gt;30" LCD TV to UK address&lt;/p&gt;&lt;/li&gt;
+&lt;li data-delivery-size="up-to-1kg"&gt;&lt;p&gt;Samsung S8 to China&lt;/p&gt;&lt;/li&gt;
+&lt;li data-delivery-size="up-to-5kg"&gt;&lt;p&gt;Coffee Machine to UK address&lt;/p&gt;&lt;/li&gt;</code></pre>
+            <pre><code class="css">body {
+    counter-reset: items price heavy light;
+}
+
+[data-delivery-size="up-to-30kg"] {
+    counter-increment: price 19 items heavy;
+}
+
+[data-delivery-size="up-to-5kg"] {
+    counter-increment: price 5 items heavy;
+}
+
+[data-delivery-size="up-to-1kg"] {
+    counter-increment: price items light;
+}
+
+.number-total::after {
+    content: counter(items) " items";
+}
+
+.price-total::after {
+    content: "£" counter(price) ".00";
+}
+
+.heavy-total::after {
+    content: counter(heavy) " items";
+}
+
+.light-total::after {
+    content: counter(light) " items";
+}</code></pre>
+            <p class="demo">13. <a href="14/index.html" target="demo">Basket counter</a></p>
+
+            <a class="next" href="#s16">Next</a>
+        </div>
+
+        <div class="slide" id="s16">
+            <h1>Tab index</h1>
+            <pre><code class="html">&lt;li class="item" tabindex="1"&gt;&lt;/li&gt;
+&lt;li class="item" tabindex="2"&gt;&lt;/li&gt;</code></pre>
+            <pre><code class="css">.item:focus {
+    height: 250px;
+    background-color: white;
+}}</code></pre>
+            <p class="demo">14. <a href="15/index.html" target="demo">Show on focus</a></p>
+
+            <a class="next" href="#s17">Next</a>
+        </div>
+
+        <div class="slide" id="s17">
+            <h1>Radio button and Checkbox</h1>
+            <pre><code class="html">&lt;input type="radio" name="gender" id="male"&gt;&lt;label for="male"&gt;Male&lt;/label&gt;
+&lt;input type="checkbox" id="travel"&gt;&lt;label for="travel"&gt;Travel&lt;/label&gt;
+
+&lt;div class="thanks"&gt;Thank you for your answer!&lt;/div&gt;</code></pre>
+            <pre><code class="css">.thanks {
+    display: none;
+}
+
+input:checked ~ .thanks {
+    display: block;
+}</code></pre>
+            <p class="demo">15. <a href="16/index.html" target="demo">Simple form</a></p>
+
+            <a class="next" href="#s18">Next</a>
+        </div>
+
+        <div class="slide" id="s18">
+            <h1>Radio button and Checkbox</h1>
+
+            <pre><code class="html">&lt;li&gt;
+    &lt;input type="radio" name="accordion" id="element-1"&gt;
+    &lt;label for="element-1"&gt;Header 1&lt;/label&gt;
+    &lt;p&gt;Lorem ipsum dolor sit amet...&lt;/p&gt;
+&lt;/li&gt;</code></pre>
+            <pre><code class="css">p {
+    height: 0;
+}
+
+input:checked ~ p {
+    height: auto;
+}</code></pre>
+            <p class="demo">16. <a href="17/index.html" target="demo">Radio button accordion</a></p>
+            <p class="demo">17. <a href="18/index.html" target="demo">Checkbox accordion</a></p>
+            <p class="demo">18. <a href="19/index.html" target="demo">Tabindex accordion</a></p>
+
+            <a class="next" href="#s19">Next</a>
+        </div>
+
+        <div class="slide" id="s19">
+            <h1>Radio button and Checkbox</h1>
+            <pre><code class="html">&lt;nav&gt;
+    &lt;input type="checkbox" id="burger" checked&gt;
+    &lt;label for="burger"&gt;≡&lt;/label&gt;
+
+    &lt;ul class="navigation"&gt;
+        &lt;li&gt;Home&lt;/li&gt;
+        &lt;li&gt;Blog&lt;/li&gt;
+        &lt;li&gt;About&lt;/li&gt;
+        &lt;li&gt;Contact&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;</code></pre>
+            <pre><code class="css">.navigation {
+    transform: translateX(100%);
+    transition: transform 300ms;
+}
+
+input:checked ~ .navigation {
+    transform: translateX(0);
+}</code></pre>
+            <p class="demo">19. <a href="20/index.html" target="demo">Burger menu</a></p>
+
+            <a class="next" href="#s20">Next</a>
+        </div>
+
+        <div class="slide" id="s20">
+            <h1>Radio button and Checkbox</h1>
+            <pre><code class="html">&lt;div class="dairy non-vegan"&gt;Milk&lt;/div&gt;
+&lt;div class="meat non-vegan non-vegetarian"&gt;Sausage&lt;/div&gt;
+&lt;div class="vegetables"&gt;Tomatoe&lt;/div&gt;
+&lt;div class="fruit"&gt;Banana&lt;/div&gt;</code></pre>
+            <pre><code class="css">div {
+    height: 0;
+}
+                
+#dairy:checked ~ .dairy,
+#meat:checked ~ .meat,
+#fruit:checked ~ .fruit,
+#nuts:checked ~ .nuts,
+#vegetables:checked ~ .vegetables {
+    height: 40px;
+    counter-increment: total;
+}</code></pre>
+            <p class="demo">20. <a href="21/index.html" target="demo">CSS filter</a></p>
+
+            <a class="next" href="#s21">Next</a>
+        </div>
+
+        <div class="slide" id="s21">
+            <h1>Radio button and Checkbox</h1>
+            <pre><code class="css">.second-hand {
+  animation: rotate 60s steps(60) infinite;
+  animation-play-state: paused;
+}
+
+.ms-hand {
+  animation: rotate 1s linear infinite;
+  animation-play-state: paused;
+}
+
+#going:checked ~ .clock > .ms-hand,
+#going:checked ~ .clock > .second-hand {
+    animation-play-state: running;
+}</code></pre>
+            <p class="demo">21. <a href="22/index.html" target="demo">CSS Stopwatch</a></p>
+
+            <a class="next" href="#s22">Next</a>
+        </div>
+
+        <div class="slide" id="s22">
+            <h1>Touch action</h1>
+            <p> - Disable input after being checked</p>
+
+            <pre><code class="css">touch-action: none;</code></pre>
+
+            <a class="next" href="#s23">Next</a>
+        </div>
+
+        <div class="slide" id="s23">
+            <h1>Miscellaneous features</h1>
+            <p> - CSS3 cursors</p>
+	        <p> - Animation, Transition</p>
+            <p> - Filters</p>
+            <p> - :enabled, :disabled (input elements)</p>
+            <p> - :valid, :invalid (with default or regex validation)</p>
+            <p> - :in-range, :out-of-range (number input)</p>
+            <a class="next" href="#s24">Next</a>
+        </div>
+
+        <div class="slide" id="s24">
+            <h1>Game 1</h1>
+            <p>Find differences on image</p>
+
+            <p class="demo"><a href="game1/index.html" target="demo">Find diffs game</a></p>
+
+            <pre><code class="html">&lt;input type="checkbox" id="spot1"&gt;&lt;label for="spot1"&gt;&lt;/label&gt;</code></pre>
+            <pre><code class="css">input + label {
+  opacity: 0;
+  counter-increment: total;
+}
+
+input:checked + label {
+  opacity: 1;
+  touch-events: none;
+  counter-increment: found;
+}
+
+.image-container::after {
+  content: 'You found ' counter(found) ' differences. There are ' counter(total) ' more to find.';
+}
+
+.timeout-screen {
+  animation: game-over 300ms 15s linear both;
+}
+
+#spot1:checked ~ #spot2:checked ~ #spot3:checked ~ #spot4:checked ~ #spot5:checked ~ #spot6:checked ~ #spot7:checked ~ #spot8:checked ~ #spot9:checked ~ #spot10:checked ~ #spot11:checked ~ #spot12:checked ~ .success {
+  opacity: 1;
+  transform: scale(1);
+}
+
+#spot1:checked ~ #spot2:checked ~ #spot3:checked ~ #spot4:checked ~ #spot5:checked ~ #spot6:checked ~ #spot7:checked ~ #spot8:checked ~ #spot9:checked ~ #spot10:checked ~ #spot11:checked ~ #spot12:checked ~ .timeleft-counter,
+#spot1:checked ~ #spot2:checked ~ #spot3:checked ~ #spot4:checked ~ #spot5:checked ~ #spot6:checked ~ #spot7:checked ~ #spot8:checked ~ #spot9:checked ~ #spot10:checked ~ #spot11:checked ~ #spot12:checked ~ .timeout-screen {
+  animation-play-state: paused;
+}</code></pre>
+
+            <a class="next" href="#s25">Next</a>
+        </div>
+
+        <div class="slide" id="s25">
+            <h1>Game 2</h1>
+            <p>5 question quiz</p>
+
+            <p class="demo"><a href="game2/index.html" target="demo">Quiz</a></p>
+
+            <pre><code class="html">&lt;input type="checkbox" class="correct" id="q11"&gt;
+&lt;input type="checkbox" class="wrong" id="q12"&gt;
+&lt;input type="checkbox" class="wrong" id="q13"&gt;
+&lt;input type="checkbox" class="wrong" id="q14"&gt;</code></pre>
+            <pre><code class="css">correct:checked {
+   counter-increment: correct;
+}
+
+.wrong:checked {
+    counter-increment: wrong;
+}
+
+.correct:checked ~ .correct:checked ~ .correct:checked ~ .correct:checked ~ .correct:checked ~ .success {
+    display: block;
+    animation: game-over 1s both;
+}</code></pre>
+
+<pre><code class="css">[id^="q1"]:checked ~ .question1,
+[id^="q2"]:checked ~ .question1, [id^="q2"]:checked ~ .question2,
+[id^="q3"]:checked ~ .question1, [id^="q3"]:checked ~ .question2, [id^="q3"]:checked ~ .question3,
+[id^="q4"]:checked ~ .question1, [id^="q4"]:checked ~ .question2, [id^="q4"]:checked ~ .question3, [id^="q4"]:checked ~ .question4,
+[id^="q5"]:checked ~ .question1, [id^="q5"]:checked ~ .question2, [id^="q5"]:checked ~ .question3, [id^="q5"]:checked ~ .question4, [id^="q5"]:checked ~ .question5 {
+    display: none !important;
+}
+
+.wrong:checked ~ [id^="q"]:checked ~ [id^="q"]:checked ~ [id^="q"]:checked ~ [id^="q"]:checked ~ .fail,
+[id^="q"]:checked ~ .wrong:checked ~ [id^="q"]:checked ~ [id^="q"]:checked ~ [id^="q"]:checked ~ .fail,
+[id^="q"]:checked ~ [id^="q"]:checked ~ .wrong:checked ~ [id^="q"]:checked ~ [id^="q"]:checked ~ .fail,
+[id^="q"]:checked ~ [id^="q"]:checked ~ [id^="q"]:checked ~ .wrong:checked ~ [id^="q"]:checked ~ .fail,
+[id^="q"]:checked ~ [id^="q"]:checked ~ [id^="q"]:checked ~ [id^="q"]:checked ~ .wrong:checked ~ .fail {
+    display: block;
+    animation: game-over 1s both;
+}</code></pre>
+            <a class="next" href="#s26">Next</a>
+        </div>
+
+        <div class="slide" id="s26">
+            <h1>Game 3</h1>
+            <p>Catch Tiki</p>
+
+            <p class="demo"><a href="game3/index.html" target="demo">Catch Tiki</a></p>
+
+            <pre><code class="html">&lt;input type="checkbox" id="t1"&gt&lt;label for="t1"&gt&lt;img src="tiki.png"&gt&lt;/label&gt</code></pre>
+            <pre><code class="css">#t1:checked ~ #t2:checked ~ #t3:checked ~ #t4:checked ~ #t5:checked ~ #t6:checked ~ #t7:checked ~ #t8:checked ~ #t9:checked ~ .success {
+    opacity: 1;
+    transform: scale(1) translateX(-50%);
+}</code></pre>
+
+            <a class="next" href="#s27">Next</a>
+        </div>
+
+        <div class="slide" id="s27">
+            <h1>Game 4</h1>
+            <p>Car Racing</p>
+
+            <p class="demo"><a href="game4/index.html" target="demo">Car Racing</a></p>
+
+            <pre><code class="html">&lt;div class="car level1"&gt;&lt;img src="car1.png"&gt;&lt;/div&gt;</code></pre>
+            <pre><code class="css">.road {
+    cursor: url(car2.png), auto;
+}
+
+.car:hover ~ .game-over {
+    display: block;
+}
+
+.car:hover ~ .counter,
+.car:hover ~ .level-indicator::after {
+    animation-play-state: paused;
+}
+                              
+@keyframes display {
+  0%   {content: "1";}
+  25%  {content: "2";}
+  50%  {content: "3";}
+  100% {content: "3";}
+}</code></pre>
+
+            <a class="next" href="#s28">Next</a>
+        </div>
+
+        <div class="slide" id="s28">
+            <h1>Game 5</h1>
+            <p>Duck Hunt</p>
+
+            <p class="demo"><a href="game5/index.html" target="demo">Duck Hunt</a></p>
+
+            <pre><code class="html">&lt;input type="checkbox" id="bird1"&gt;&lt;label class="bird" for="bird1"&gt;&lt;/label&gt;</code></pre>
+            <pre><code class="css">[type="checkbox"] + label.bird {
+    animation: fly steps(3) 2s infinite forwards;	
+}
+
+[type="checkbox"]:checked + label.bird {
+    animation: die 2s 1s forwards;
+}
+
+[type="checkbox"]:checked {
+	counter-increment: score 100;
+}
+                </code></pre>
+
+            <a class="next" href="#s29">Next</a>
+        </div>
+
+        <div class="slide" id="s29">
+            <h1>Final thoughts</h1>
+            <p> - Keep good balance</p>
+            <p> - Remember what HTML and CSS are for</p>
+            <p> - Github: www.github.com/webondevices/css-presentation
+            <p> - Challenge: Gomoku (5 in a row)</p>
+
+            <a class="next" href="#s30">Next</a>
+        </div>
+
+        <div class="slide" id="s30">
+            <h1>Questions?</h1>
+        </div>
+
+        <div class="progress"></div>
+       
+    </section>
+
+    <section class="demo">
+        <input type="checkbox" id="fullscreen">
+        <label for="fullscreen">Toggle Fullscreen</label>
+        <iframe name="demo" frameborder="0"></iframe>
+    </section>
+</body>
+</html>

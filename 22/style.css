@@ -1,0 +1,123 @@
+body {
+  font-family: arial;
+}
+
+ul, li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.clock {
+  width: 300px;
+  height: 300px;
+  background-color: gray;
+  border-radius: 50%;
+  position: relative;
+}
+
+.second-hand {
+  height: 150px;
+  background-color: green;
+  top: 0;
+  animation: rotate 60s steps(60) infinite;
+}
+
+.ms-hand {
+  height: 100px;
+  background-color: orange;
+  top: 50px;
+  animation: rotate 1s linear infinite;
+}
+
+.second-hand,
+.ms-hand {
+  width: 5px;
+  position: absolute;
+  left: calc(50% - 2.5px);
+  animation-play-state: paused;
+  transform-origin: center bottom;
+  box-shadow: 0 0 5px rgba(0,0,0,0.7);
+}
+
+.start,
+.stop {
+  width: 300px;
+  margin: 20px 0;
+  padding: 12px;
+  box-sizing: border-box;
+  font-size: 24px;
+  font-family: sans-serif;
+  color: white;
+  font-weight: 300;
+  text-align: center;
+}
+
+.start {
+    background-color: green;
+}
+
+.stop {
+    background-color: gray;
+}
+
+#going {
+  position: absolute;
+  left: -100vw;
+}
+  
+#going ~ .start,
+#going:checked ~ .stop {
+  display: block;
+}
+
+#going ~ .stop,
+#going:checked ~ .start {
+  display: none;
+}
+
+#going:checked ~ .clock > .ms-hand,
+#going:checked ~ .clock > .second-hand,
+#going:checked ~ .counter > ul{
+    animation-play-state: running;
+}
+
+@keyframes count {
+  from {
+    top: 0px;
+  }
+  
+  to {
+    top: -6000px;
+  }
+}
+
+.counter {
+  width: 300px;
+  height: 100px;
+  overflow: hidden;
+  position: relative;
+}
+ 
+.counter > ul > li {
+    width: 300px;
+    height: 100px;
+    font-size: 48px;
+    text-align: center;
+    font-family: sans-serif;
+}
+
+.counter > ul {
+  animation: count steps(60) 60s infinite;
+  animation-play-state: paused;
+  position: absolute;
+}

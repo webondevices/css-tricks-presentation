@@ -1,0 +1,25 @@
+body {
+    font-family: sans-serif;
+    margin: 50px;
+}
+
+button {
+    width: 200px;
+    height: 80px;
+    transition: all 300ms;
+    -webkit-appearance: none;
+    appearance: none;
+    border: none;
+    outline: none;
+    font-size: 18px;
+}
+
+button:hover {
+    background-color: pink;
+    transform: scale(1.1);
+}
+
+button:active {
+    background-color: red;
+    transform: scale(1);
+}

@@ -1,0 +1,47 @@
+body {
+    font-family: sans-serif;
+    background-color: #2d3f58;
+    color: white;
+    font-size: 12px;
+}
+
+progress {
+    -webkit-appearance: none;
+    appearance: none;
+    position: relative;
+    width: 250px;
+    height: 15px;
+}
+
+progress::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 10px;
+    top: 30px;
+    opacity: 0.4;
+}
+
+progress::after {
+    content: attr(value) "0%";
+    position: absolute;
+    right: 0;
+    top: 30px;
+}
+
+progress::-webkit-progress-bar {
+    transition: background-color 300ms, width 300ms;
+    background-color: #495b76;
+    border-radius: 10px;
+    overflow:hidden;
+}
+
+progress[value="1"]::-webkit-progress-value  { background-color: #ff2b00 }
+progress[value="2"]::-webkit-progress-value  { background-color: #ff5500 }
+progress[value="3"]::-webkit-progress-value  { background-color: #ff8000 }
+progress[value="4"]::-webkit-progress-value  { background-color: #ffaa00 }
+progress[value="5"]::-webkit-progress-value  { background-color: #ffd500 }
+progress[value="6"]::-webkit-progress-value  { background-color: yellow  }
+progress[value="7"]::-webkit-progress-value  { background-color: #d5ff00 }
+progress[value="8"]::-webkit-progress-value  { background-color: #aaff00 }
+progress[value="9"]::-webkit-progress-value  { background-color: #80ff00 }
+progress[value="10"]::-webkit-progress-value { background-color: #55ff00 }

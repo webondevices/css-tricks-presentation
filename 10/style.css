@@ -1,0 +1,33 @@
+body {
+    font-family: sans-serif;
+    background-color: rgb(236, 225, 198);
+}
+
+p {
+    margin: 100px 50px;
+}
+
+[data-tooltip] {
+    position: relative;
+    text-decoration: underline;
+    font-style: italic;
+}
+
+[data-tooltip]::before {
+    content: attr(data-tooltip);
+    position: absolute;
+    opacity: 0;
+    top: -48px;
+    left: -40px;
+    width: 160px;
+    height: 37px;
+    text-align: center;
+    padding: 10px;
+    background-color: gainsboro;
+    transition: all .5s;
+}
+
+[data-tooltip]:hover::before {
+    top: -68px;
+    opacity: 1;
+}

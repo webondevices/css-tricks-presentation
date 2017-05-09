@@ -1,0 +1,40 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    background-color: #5fd4f9;
+}
+
+section {
+    width: 75%;
+    margin: 0 auto;
+}
+
+ul, li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.item {
+    width: 200px;
+    height: 80px;
+    background-color: rgba(255,255,255,0.3);
+    display: inline-block;
+    margin: 10px;
+    box-sizing: border-box;
+    padding: 25px;
+    overflow: hidden;
+    transition: transform 300ms, height 300ms;
+    vertical-align: top;
+    cursor: pointer;
+}
+
+.item:focus {
+    outline: none;
+    height: 250px;
+    background-color: white;
+}
+
+h1 {
+    margin: 0;
+}
